@@ -1,0 +1,19 @@
+
+
+
+.slider {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+.slider > * {
+  flex-shrink: 0;
+}
