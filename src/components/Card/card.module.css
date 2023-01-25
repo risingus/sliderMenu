@@ -1,41 +1,9 @@
-
-
-.card, .cardActive {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  cursor: auto;
-  border-radius: 0;
-}
-
-
-.card:active, .card:focus, .cardActive:active, .cardActive:focus {
-  border: none;
-  outline: none;
-}
-
 .cardImg {
   width: 20rem;
   height: 30rem;
   object-fit: cover;
   object-position: center;
+  user-select: none;
 }
 
 
-.cardActive {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-}
-
-
-.cardImgActive {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cardActive:active, .card:focus {
-  border: none;
-  outline: none;
-}

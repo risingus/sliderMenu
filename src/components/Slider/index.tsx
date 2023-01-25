@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { cardInfoList } from '../../constants'
+import { useCardContext } from '../../context/activeCardContext'
 import { Card } from '../Card'
 import styles from './slider.module.css'
 
 export const Slider = () => {
+	const { active, setCardActive } = useCardContext()
 	const sliderRef = useRef(null) as any
 	let mouseDownPosition = '0' as any
 	let prevPercentage = 0 as any
@@ -35,7 +37,7 @@ export const Slider = () => {
 			{ duration: 1200, fill: 'forwards' }
 		)
 
-		for (const card of sliderRef.current.querySelectorAll('button > img')) {
+		for (const card of sliderRef.current.querySelectorAll('img')) {
 			card.animate(
 				{
 					objectPosition: `${100 + formatedNextPercentage}%`,
@@ -66,11 +68,10 @@ export const Slider = () => {
 		<div className={styles.slider} ref={sliderRef}>
 			{cardInfoList.map((cardInfo) => (
 				<Card
-					setAsActive={(a) => null}
-					active={false}
 					id={cardInfo.id}
 					img={cardInfo.img}
 					key={cardInfo.id}
+					onClick={(event) => setCardActive(event)}
 				/>
 			))}
 		</div>

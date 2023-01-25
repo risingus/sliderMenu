@@ -1,28 +1,21 @@
 import styles from '../Card/card.module.css'
 
 interface CardProps {
+	id: string
 	img?: string
 	alt?: string
-	id: string
-	setAsActive: (id: string) => void
-	active: boolean
+	onClick: (event: any) => void
 }
 
-export const Card = ({ img, alt, id, setAsActive, active }: CardProps) => {
-	const a = 1.1
-
+export const Card = ({ img, alt, onClick, id }: CardProps) => {
 	return (
-		<button
-			className={active ? styles.cardActive : styles.card}
-			type='button'
-			// onClick={() => setAsActive(id)}
-		>
-			<img
-				src={img}
-				alt={alt}
-				className={active ? styles.cardImgActive : styles.cardImg}
-				draggable='false'
-			/>
-		</button>
+		<img
+			id={id}
+			onClick={onClick}
+			src={img}
+			alt={alt}
+			className={styles.cardImg}
+			draggable='false'
+		/>
 	)
 }
